@@ -1,0 +1,43 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: movies
+      POSTGRES_PASSWORD: movies
+      POSTGRES_DB: movies
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U movies -d movies"]
+      interval: 3s
+      timeout: 3s
+      retries: 20
+
+  backend:
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://movies:movies@db:5432/movies
+      TMDB_API_KEY: ${TMDB_API_KEY:?Set TMDB_API_KEY in the .env file (see README)}
+      TMDB_LANGUAGE: ${TMDB_LANGUAGE:-en-US}
+      SECRET_KEY: ${SECRET_KEY:-local-dev-secret-change-me}
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/api/health')"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+    ports:
+      - "${API_PORT:-5001}:5000"
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      backend:
+        condition: service_healthy
+    ports:
+      - "${APP_PORT:-3000}:80"
+
+volumes:
+  pgdata:
