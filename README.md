@@ -85,16 +85,6 @@ network failure, missing key), plus upgrading a database created before accounts
 | Rated Movies page | ✅ | `/rated` — title, poster and your score, sortable |
 | Click on a rated movie opens the modal | ✅ | Same modal, same URL pattern |
 
-### What is evaluated
-
-| Criterion | How it's addressed |
-|---|---|
-| API consumption (TMDB) | `backend/app/tmdb.py`: search, discover, details + credits, genres; v3 and v4 auth; timeouts; errors translated into clear messages |
-| API creation (backend endpoints) | Flask blueprints for auth, movies and ratings; consistent JSON errors; input validation; correct status codes (201/204/400/401/404/409) |
-| React state management | Server state in TanStack Query, URL state in search params, session in an auth context, local UI state in `useState` (details below) |
-| Loading states & error handling | Every list and the modal have loading, empty and error states with "Try again"; network errors and API errors are shown in plain language |
-| Appropriate database usage | Two related tables, unique and check constraints, foreign key with cascade, one query per page for the user's scores (no N+1) |
-
 ### Bonus
 
 | Bonus | Status | Details |
@@ -189,10 +179,6 @@ created_at                              score         CHECK (score BETWEEN 1 AND
 | `PUT` | `/api/ratings/:movie_id` | required | Create (201) or update (200). Body: `{"score": 1..5}` |
 | `DELETE` | `/api/ratings/:movie_id` | required | Remove (204) |
 
-Authenticated requests send `Authorization: Bearer <token>`. Errors always look like
-`{"error": {"code": "...", "message": "..."}}`, with a message ready to show to the user.
-Routes that call TMDB return `X-Cache: HIT` or `X-Cache: MISS`.
-
 ---
 
 ## Technical decisions
@@ -279,5 +265,4 @@ I reviewed, ran and adjusted the code, and I can explain each of the technical d
 
 ---
 
-Movie data provided by [TMDB](https://www.themoviedb.org/). This product uses the TMDB API but is not endorsed or
-certified by TMDB.
+Movie data provided by [TMDB](https://www.themoviedb.org/). This product uses the TMDB API.
