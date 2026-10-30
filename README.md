@@ -4,12 +4,15 @@ A movie search app built on the public [TMDB API](https://developer.themoviedb.o
 Search for movies, open one to see its synopsis, release date and cast, create an account and rate it from 1 to 5,
 change or remove the rating, and see everything you rated on its own page. Light and dark mode included.
 
+<img width="1576" height="908" alt="Captura de tela 2026-10-30 125920" src="https://github.com/user-attachments/assets/96492988-cea1-4574-b243-4f1a1bd600e4" />
+
+
 | Layer | Technology |
 |---|---|
-| Frontend | React 18 + TypeScript (Vite), React Router, TanStack Query |
-| Backend | Python 3.12 + Flask, SQLAlchemy, PyJWT, Gunicorn |
+| Frontend | React 18 + TypeScript (Vite), React Router, TanStack Query |![Uploading Captura de tela 2026-10-30 125920.png…]()
 | Database | PostgreSQL 16 |
 | Infrastructure | Docker + Docker Compose (nginx serves the frontend) |
+
 
 ---
 
@@ -97,6 +100,9 @@ network failure, missing key), plus upgrading a database created before accounts
 ### Extras
 
 - **Light and dark mode**, following the system setting on the first visit and remembering the choice.
+
+  <img width="1422" height="906" alt="Captura de tela 2026-10-30 125947" src="https://github.com/user-attachments/assets/e4205051-4dda-42f9-8d2f-de9afceb7534" />
+
 - **Shareable URLs**: the search, filters, sort order and open movie all live in the URL.
 - **Accessibility**: focus trap in the modal, keyboard-operable star rating, skip link, visible focus, reduced motion respected.
 
@@ -264,5 +270,3 @@ I used **Claude (Anthropic)** as an assistant on this project, mainly to:
 I reviewed, ran and adjusted the code, and I can explain each of the technical decisions above.
 
 ---
-
-Movie data provided by [TMDB](https://www.themoviedb.org/). This product uses the TMDB API.
