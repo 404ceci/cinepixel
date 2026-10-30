@@ -251,7 +251,7 @@ theme is active.
 proxies `/api`, so the browser and API share an origin (no CORS in production). Compose starts services in order
 using health checks: database ready → API ready → frontend.
 
-**Visual identity.** Colors follow the Pixel Breeders palette: purple `#6B3FA0`, logo violet `#734BE2` and lilac
+**Visual identity.** Colors inspired by Pixel Breeders palette: purple `#6B3FA0`, logo violet `#734BE2` and lilac
 `#F4EEFF`. The background is a projector-beam gradient with a faint pixel grid inside it — cinema meets pixels,
 a nod to the company name. Typography: Bricolage Grotesque for headings, Figtree for text, JetBrains Mono for
 labels and numbers, and Silkscreen for the wordmark.
