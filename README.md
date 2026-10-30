@@ -9,8 +9,9 @@ change or remove the rating, and see everything you rated on its own page. Light
 
 | Layer | Technology |
 |---|---|
-| Frontend | React 18 + TypeScript (Vite), React Router, TanStack Query |![Uploading Captura de tela 2026-10-30 125920.png…]()
-| Database | PostgreSQL 16 |
+| Frontend | React + TypeScript, TanStack Query |
+| Backend | Python + Flask, SQLAlchemy, PyJWT, Gunicorn |
+| Database | PostgreSQL |
 | Infrastructure | Docker + Docker Compose (nginx serves the frontend) |
 
 
