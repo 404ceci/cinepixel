@@ -264,8 +264,7 @@ labels and numbers, and Silkscreen for the wordmark.
 I used **Claude (Anthropic)** as an assistant on this project, mainly to:
 
 - write first versions of the components, and tests;
-- discuss architecture options (for example, how to combine the genre filter with search, where to put the cache,
-  and how to add authentication without session state on the server).
+- discuss architecture options 
 
 I reviewed, ran and adjusted the code, and I can explain each of the technical decisions above.
 
