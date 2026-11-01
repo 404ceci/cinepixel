@@ -263,8 +263,7 @@ labels and numbers, and Silkscreen for the wordmark.
 
 I used **Claude (Anthropic)** as an assistant on this project, mainly to:
 
-- scaffold the folder structure and configuration files (Dockerfiles, Compose, nginx, Vite, TypeScript);
-- write first versions of the components, endpoints and tests;
+- write first versions of the components, and tests;
 - discuss architecture options (for example, how to combine the genre filter with search, where to put the cache,
   and how to add authentication without session state on the server).
 
